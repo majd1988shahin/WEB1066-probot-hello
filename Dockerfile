@@ -1,5 +1,8 @@
 # https://hub.docker.com/_/node/
-FROM node:8-onbuild
+
+ARG NODE_IMAGE=node:8-onbuild
+FROM $NODE_IMAGE
+#FROM node:8-onbuild
 
 # use debug to troubleshoot
 ENV LOG_LEVEL=error
