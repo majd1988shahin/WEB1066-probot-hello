@@ -10,8 +10,8 @@ env:
 
 script:
  - docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
- - echo node:$NODE_VERSION --build-arg NODE IMAGE="node:{$NODE_VERSION}"
- - docker build -t node:$NODE_VERSION --build-arg NODE IMAGE="node:{$NODE_VERSION}" .
+ - echo node:$NODE_VERSION --build-arg NODE IMAGE="node:${NODE_VERSION}"
+ - docker build -t node:$NODE_VERSION --build-arg NODE IMAGE="node:${NODE_VERSION}" .
  - docker images
  - docker tag node:$NODE_VERSION $DOCKER_USERNAME/probot-hello:$NODE_VERSION-$(git rev-parse HEAD)
  - docker push $DOCKER_USERNAME/probot-hello:$NODE_VERSION-$(git rev-parse HEAD)
